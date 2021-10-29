@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <title>Nijigenka AI</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Turn you into Anime with the power of AI." />
+  <meta name="keywords"
+    content="selfie 2 anime, anime, ai, nijigenka, artificial intelligence, neural network, machine learning, nijigenka, GAN, generative adversarial network, computer vision, omsk, 7bits, jvcr, onnx, webgl" />
+  <meta name="yandex-verification" content="46a13ec1ebdb191b" />
+  <meta property="og:url" content="https://nijigenka.senior-sigan.net/" />
+  <meta property="og:title" content="Nijigenka AI" />
+  <meta property="og:description" content="Turn you into Anime with the power of AI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="showcase.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@nijigenka_ai" />
+  <meta name="twitter:title" content="Nijigenka AI" />
+  <meta name="twitter:description" content="Turn you into Anime with the power of AI." />
+  <meta name="twitter:image" content="showcase.png" />
+  <link rel="canonical" href="https://nijigenka.senior-sigan.net/">
+
+
+  <style type="text/css">
+    img {
+      width: 256px;
+      height: 256px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Nijigenka AI - web version</h1>
+  <p>If your browser doesn't support our neural network, please, try our telegram bot version <a
+      href='https://7bits.it/portfolio/nijigenka-ai'>here</a></p>
+  <p>Processing time could takes 10 seconds in browser.</p>
+  <p>Images will not be sent to any servers. Everything is being processed on your computer!</p>
+
+  <input type="file" id='uploader' accept=".jpg, .jpeg, .png">
+  <p id='message_area'>Select Selfie</p>
+  <br>
+
+  <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+  <script src="ndarray-browser-min.js"></script>
+  <script src="image-loader.js"></script>
+  <script src='index.js'></script>
+
+  <script>
+    const uploader = document.getElementById('uploader');
+    uploader.addEventListener('change', (e) => {
+      console.log(e);
+      if (e.target.files.length == 0) {
+        console.log('No image is selected');
+        return;
+      }
+      const file = e.target.files[0];
+      const url = window.URL.createObjectURL(file);
+      animefaction(url).then(() => {
+        console.log('DONE');
+      });
+    });
+
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () {
+        (m[i].a = m[i].a || []).push(arguments)
+      };
+      m[i].l = 1 * new Date();
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k,
+        a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(71505382, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/71505382" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+</body>
+
+</html>
